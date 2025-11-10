@@ -174,7 +174,7 @@ Key takeaway: [Your main learning]
 
 ## Notes
 
-- Default student index: `194174`
+- Default student index: `224000X`
 - Coordinates are displayed with 2 decimal precision
 - Weather code is shown as raw number from API
 - Last updated time uses device clock
@@ -183,7 +183,7 @@ Key takeaway: [Your main learning]
 
 ## Author
 
-Student Index: [Your Index]  
+Student Index: 224223N  
 Date: November 10, 2025
 
 ## License
