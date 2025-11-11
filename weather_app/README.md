@@ -112,6 +112,19 @@ weather_app/
 - Displays cached data when network fails
 - Shows "CACHED" badge for offline data
 
+### UI Enhancements
+
+- **Animated Cloud Background**: 5 floating clouds with smooth animations
+- **Glass-morphism Design**: Semi-transparent cards with subtle shadows
+- **Gradient Backgrounds**: Beautiful sky gradient from blue to white
+- **Custom Color Palette**: Coordinated colors for different UI elements
+- **Responsive Layout**: Adapts to different screen sizes and orientations
+- **Material Design 3**: Modern design language with proper theming
+
+## Additional Documentation
+
+- `UI_IMPROVEMENTS.md`: Detailed documentation of the UI enhancements, design decisions, and implementation details
+
 ### Error Handling
 
 - Invalid index format detection
@@ -140,7 +153,7 @@ weather_app/
 
 ## Deliverables Checklist
 
-- [x] Full Flutter project
+- [x] Full Flutter project with enhanced UI
 - [ ] report\_<index>.pdf with:
   - [ ] Student index
   - [ ] Coordinate formula explanation
@@ -180,17 +193,18 @@ Key takeaway: [Your main learning]
 
 ## Notes
 
-- Default student index: `224000X`
+- Default student index: `194174`
 - Coordinates are displayed with 2 decimal precision
 - Weather code is shown as raw number from API
 - Last updated time uses device clock
 - Cache persists between app sessions
 - Works on Android, iOS, Windows, macOS, Linux, Web
+- Features animated cloud backgrounds for enhanced visual appeal
 
 ## Author
 
-Student Index: 224223N  
-Date: November 10, 2025
+Student Index: 194174  
+Date: November 11, 2025
 
 ## License
 
