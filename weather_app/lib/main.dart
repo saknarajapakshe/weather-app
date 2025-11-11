@@ -37,7 +37,7 @@ class WeatherDashboard extends StatefulWidget {
 }
 
 class _WeatherDashboardState extends State<WeatherDashboard> {
-  final TextEditingController _indexController = TextEditingController(text: '194174');
+  final TextEditingController _indexController = TextEditingController(text: '224223N');
   
   double? _latitude;
   double? _longitude;
@@ -329,7 +329,7 @@ class _WeatherDashboardState extends State<WeatherDashboard> {
                             ),
                             child: ElevatedButton.icon(
                               onPressed: _isLoading ? null : _fetchWeather,
-                              icon: const Icon(Icons.cloud_download, color: Colors.white),
+                              icon: const Icon(Icons.download, color: Colors.white),
                               label: const Text(
                                 'Fetch Weather',
                                 style: TextStyle(
