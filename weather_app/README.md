@@ -1,6 +1,6 @@
 # Personalized Weather Dashboard
 
-A Flutter mobile application that displays personalized weather information based on a student index number.
+A beautiful Flutter mobile application that displays personalized weather information based on a student index number, featuring an elegant UI with animated cloud backgrounds.
 
 ## Features
 
@@ -13,7 +13,9 @@ A Flutter mobile application that displays personalized weather information base
 ✅ **Error Handling**: Friendly error messages when network fails  
 ✅ **Offline Cache**: Saves last successful result and displays it when offline  
 ✅ **Cached Data Indicator**: Shows "(CACHED)" tag when displaying offline data  
-✅ **Clean UI**: Material Design 3 with cards and proper layout
+✅ **Beautiful UI**: Material Design 3 with glass-morphism cards and animated cloud backgrounds  
+✅ **Responsive Design**: Works seamlessly across different screen sizes  
+✅ **Smooth Animations**: Floating clouds animation for enhanced visual appeal
 
 ## Coordinate Derivation Formula
 
@@ -75,11 +77,15 @@ https://api.open-meteo.com/v1/forecast?latitude=LAT&longitude=LON&current_weathe
 ```
 weather_app/
 ├── lib/
-│   └── main.dart          # Main application code
+│   └── main.dart          # Main application code with UI and logic
 ├── android/               # Android platform files
 ├── ios/                   # iOS platform files
 ├── pubspec.yaml           # Dependencies configuration
-└── README.md             # This file
+├── analysis_options.yaml  # Linting configuration
+├── UI_IMPROVEMENTS.md     # UI enhancement documentation
+├── README.md             # This file
+└── test/
+    └── widget_test.dart   # Basic widget tests
 ```
 
 ## Implementation Details
