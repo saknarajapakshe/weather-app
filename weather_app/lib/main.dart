@@ -37,7 +37,7 @@ class WeatherDashboard extends StatefulWidget {
 }
 
 class _WeatherDashboardState extends State<WeatherDashboard> {
-  final TextEditingController _indexController = TextEditingController(text: '224223N');
+  final TextEditingController _indexController = TextEditingController(text: '123456N');
   
   double? _latitude;
   double? _longitude;
@@ -158,7 +158,12 @@ class _WeatherDashboardState extends State<WeatherDashboard> {
     });
 
     try {
-      final response = await http.get(Uri.parse(url)).timeout(
+      final response = await http.get(
+        Uri.parse(url),
+        headers: {
+          'Accept': 'application/json',
+        },
+      ).timeout(
         const Duration(seconds: 10),
       );
 
@@ -394,19 +399,48 @@ class _WeatherDashboardState extends State<WeatherDashboard> {
                               ),
                             ),
 
-                          // Coordinates Display
+                          // Coordinates Display - WITH CACHED TAG
                           if (_latitude != null && _longitude != null)
                             _buildGlassCard(
+                              color: _isCached
+                                  ? Colors.orange[50]!.withOpacity(0.9)
+                                  : Colors.white.withOpacity(0.9),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  const Text(
-                                    'Computed Coordinates',
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold,
-                                      color: Color(0xFF2C3E50),
-                                    ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      const Text(
+                                        'Computed Coordinates',
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold,
+                                          color: Color(0xFF2C3E50),
+                                        ),
+                                      ),
+                                      if (_isCached)
+                                        Container(
+                                          padding: const EdgeInsets.symmetric(
+                                            horizontal: 12,
+                                            vertical: 6,
+                                          ),
+                                          decoration: BoxDecoration(
+                                            gradient: const LinearGradient(
+                                              colors: [Colors.orange, Colors.deepOrange],
+                                            ),
+                                            borderRadius: BorderRadius.circular(20),
+                                          ),
+                                          child: const Text(
+                                            'CACHED',
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                        ),
+                                    ],
                                   ),
                                   const SizedBox(height: 12),
                                   Row(
@@ -464,7 +498,7 @@ class _WeatherDashboardState extends State<WeatherDashboard> {
 
                           const SizedBox(height: 16),
 
-                          // Weather Information
+                          // Weather Information - NO CACHED TAG, ONLY ORANGE BACKGROUND
                           if (_temperature != null && !_isLoading)
                             _buildGlassCard(
                               color: _isCached
@@ -473,39 +507,13 @@ class _WeatherDashboardState extends State<WeatherDashboard> {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      const Text(
-                                        'Current Weather',
-                                        style: TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold,
-                                          color: Color(0xFF2C3E50),
-                                        ),
-                                      ),
-                                      if (_isCached)
-                                        Container(
-                                          padding: const EdgeInsets.symmetric(
-                                            horizontal: 12,
-                                            vertical: 6,
-                                          ),
-                                          decoration: BoxDecoration(
-                                            gradient: const LinearGradient(
-                                              colors: [Colors.orange, Colors.deepOrange],
-                                            ),
-                                            borderRadius: BorderRadius.circular(20),
-                                          ),
-                                          child: const Text(
-                                            'CACHED',
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 12,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                        ),
-                                    ],
+                                  const Text(
+                                    'Current Weather',
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                      color: Color(0xFF2C3E50),
+                                    ),
                                   ),
                                   const SizedBox(height: 16),
                                   _buildWeatherRow(
